@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurent Leynaud - CV Ingénieur Photovoltaïque</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; color: #1e293b; }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            letter-spacing: -0.015em;
+        }
+        @media print {
+            body { print-color-adjust: exact; }
+            .no-print { display: none; }
+        }
+        /* En-tête : ardoise profond + halo solaire (aligné sur le portfolio) */
+        .bg-solar-gradient {
+            background-color: #0f172a;
+            background-image:
+                radial-gradient(900px 500px at 85% -20%, rgba(245, 158, 11, 0.22), transparent 60%),
+                linear-gradient(180deg, #0b1120 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Bouton retour (non imprimable) -->
+    <div class="no-print fixed top-4 left-4 z-50">
+            <a href="./index.html" class="bg-slate-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-slate-900 transition-all">
+                <i class="fas fa-arrow-left mr-2"></i>Retour au portfolio
+            </a>
+    </div>
+    
+    <!-- Bouton imprimer (non imprimable) -->
+    <div class="no-print fixed top-4 right-4 z-50">
+            <button onclick="window.print()" class="bg-amber-500 text-slate-950 font-semibold px-4 py-2 rounded-lg shadow-lg hover:bg-amber-400 transition-all">
+                <i class="fas fa-print mr-2"></i>Imprimer / PDF
+            </button>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl my-8 print:my-0 print:shadow-none">
+        <!-- En-tête -->
+        <header class="bg-solar-gradient text-white p-8 print:p-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:flex-1">
+                    <h1 class="text-4xl font-bold mb-2">Laurent LEYNAUD</h1>
+                    <h2 class="text-xl font-light mb-4 text-amber-300">Ingénieur photovoltaïque – Expertise technique & conseil</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt w-5 text-amber-400"></i>
+                            <span>1155 Chemin Des Combes, 26120 UPIE</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope w-5 text-amber-400"></i>
+                            <span>lleynaud@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone w-5 text-amber-400"></i>
+                            <span>06 62 83 41 95</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-linkedin w-5 text-amber-400"></i>
+                            <span>laurent-leynaud-solarpvtech</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-car w-5 text-amber-400"></i>
+                            <span>Permis B – Mobilité nationale</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-user w-5 text-amber-400"></i>
+                            <span>46 ans, pacsé, deux enfants</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="p-8 print:p-6">
+            <!-- Profil -->
+            <section class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-amber-400 pb-2">
+                    <i class="fas fa-user-circle text-amber-500 mr-2"></i>Profil
+                </h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Ingénieur photovoltaïque expérimenté (<strong>17 ans d'expérience</strong>) spécialisé dans l'audit, 
+                    la performance et la fiabilité des centrales solaires. Expert en instrumentation, communication 
+                    (Modbus, LoRa, HTA) et analyse de rendement. Réalise des missions d'expertise technique, de rétrofit 
+                    et de développement de solutions innovantes pour optimiser l'exploitation des installations photovoltaïques. 
+                    Télépilote professionnel pour inspections par drone et thermographie.
+                </p>
+            </section>
+
+            <!-- Domaines de compétences -->
+            <section class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-amber-400 pb-2">
+                    <i class="fas fa-cogs text-amber-500 mr-2"></i>Domaines de compétences
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-solar-panel text-amber-500 mr-2"></i>Photovoltaïque
+                        </h4>
+                        <ul class="text-sm text-gray-700 space-y-1 ml-6">
+                            <li>• Audit, due diligence, diagnostic de performance</li>
+                            <li>• Optimisation et rétrofit d'installations</li>
+                            <li>• Analyse de rendement et détection de défauts</li>
+                            <li>• Mise en service et réception d'installations</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-microchip text-amber-500 mr-2"></i>Instrumentation & Communication
+                        </h4>
+                        <ul class="text-sm text-gray-700 space-y-1 ml-6">
+                            <li>• Protocoles Modbus RTU/TCP, LoRaWAN</li>
+                            <li>• Instrumentation analogique et numérique</li>
+                            <li>• Systèmes de monitoring et supervision</li>
+                            <li>• Integration IoT et télémesure</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-tools text-amber-500 mr-2"></i>Maintenance & Diagnostic
+                        </h4>
+                        <ul class="text-sm text-gray-700 space-y-1 ml-6">
+                            <li>• Diagnostic et réparation onduleurs</li>
+                            <li>• Maintenance préventive et corrective</li>
+                            <li>• Thermographie infrarouge par drone</li>
+                            <li>• Analyse de défaillances et solutions</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">
+                            <i class="fas fa-chart-line text-amber-500 mr-2"></i>Gestion & Support
+                        </h4>
+                        <ul class="text-sm text-gray-700 space-y-1 ml-6">
+                            <li>• Gestion de parcs multi-MW</li>
+                            <li>• Support technique multi-niveaux</li>
+                            <li>• Formation et accompagnement</li>
+                            <li>• Conseil en optimisation énergétique</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expérience professionnelle -->
+            <section class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-amber-400 pb-2">
+                    <i class="fas fa-briefcase text-amber-500 mr-2"></i>Expérience professionnelle
+                </h3>
+
+                <!-- Feedgy -->
+                <div class="mb-6 border-l-2 border-amber-400 pl-4">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                        <h4 class="text-lg font-semibold text-gray-800">Ingénieur Photovoltaïque</h4>
+                        <span class="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">2020 - Présent</span>
+                    </div>
+                    <p class="text-gray-600 font-medium mb-3">Feedgy (Paris) - Home Office</p>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• <strong>Chef de projets R&D</strong> - Développement de solutions innovantes</li>
+                        <li>• <strong>Audit technique</strong> - Centrales PV (rétrofit, mise en service, due diligence)</li>
+                        <li>• <strong>Support technique</strong> - Multi-niveaux (commerciaux, bureaux d'études, clients finaux)</li>
+                        <li>• <strong>Instrumentation avancée</strong> - LoRaWan, Modbus, capteurs analogiques</li>
+                        <li>• <strong>Innovation</strong> - Développement solution de détection et localisation défauts d'isolement</li>
+                        <li>• <strong>Intelligence Artificielle</strong> - Construction d'un agent IA avec Hermes : support technique, capitalisation des retours d'expérience terrain et calculs de performance des centrales rétrofitées</li>
+                    </ul>
+                </div>
+
+                <!-- Soligest -->
+                <div class="mb-6 border-l-2 border-amber-400 pl-4">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                        <h4 class="text-lg font-semibold text-gray-800">Chargé d'Exploitation</h4>
+                        <span class="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">2012 - 2020</span>
+                    </div>
+                    <p class="text-gray-600 font-medium mb-3">Soligest - Montélimar (26)</p>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• <strong>Exploitation parc</strong> - 110 centrales photovoltaïques (23MWc de puissance totale)</li>
+                        <li>• <strong>Audit technique</strong> - Évaluation performance et diagnostic installations</li>
+                        <li>• <strong>Maintenance spécialisée</strong> - Diagnostic, réparation onduleurs strings et centraux</li>
+                        <li>• <strong>Communication industrielle</strong> - Développement systèmes HTA et Modbus</li>
+                        <li>• <strong>Optimisation</strong> - Amélioration rendement et fiabilité des installations</li>
+                    </ul>
+                </div>
+
+                <!-- Samsolar -->
+                <div class="mb-6 border-l-2 border-amber-400 pl-4">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                        <h4 class="text-lg font-semibold text-gray-800">Chef de Projet</h4>
+                        <span class="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">2010 - 2012</span>
+                    </div>
+                    <p class="text-gray-600 font-medium mb-3">Samsolar - Montélimar (26) - Contrat de professionnalisation</p>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• <strong>Développement monitoring</strong> - Systèmes de suivi de production centrales PV</li>
+                        <li>• <strong>Exploitation</strong> - Parc de 50 centrales photovoltaïques (7MWc)</li>
+                        <li>• <strong>Partenariat R&D</strong> - Collaboration avec l'INES (CEA) sur optimisation centrales PV</li>
+                        <li>• <strong>Études techniques</strong> - Installations raccordées réseau, dimensionnement</li>
+                    </ul>
+                </div>
+
+                <!-- ID Solaire -->
+                <div class="mb-6 border-l-2 border-amber-400 pl-4">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                        <h4 class="text-lg font-semibold text-gray-800">Technicien Études</h4>
+                        <span class="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">2008 - 2010</span>
+                    </div>
+                    <p class="text-gray-600 font-medium mb-3">ID Solaire - Aubenas (07)</p>
+                    <p class="text-sm text-gray-700">Étude et installation de systèmes photovoltaïques - Acquisition fondamentaux du secteur PV</p>
+                </div>
+            </section>
+
+            <!-- Formation -->
+            <section class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-amber-400 pb-2">
+                    <i class="fas fa-graduation-cap text-amber-500 mr-2"></i>Formation
+                </h3>
+                
+                <div class="space-y-3">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ingénieur CNAM spécialité énergétique</h4>
+                            <p class="text-sm text-gray-600">Option électrotechnique</p>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500">2010 - 2012</span>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Licence Énergie éolienne et photovoltaïque</h4>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500">2008 - 2009</span>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Licence professionnelle matériaux polymères</h4>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500">2002 - 2003</span>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">DUT Sciences et Génie des Matériaux</h4>
+                        </div>
+                        <span class="text-sm font-medium text-gray-500">1999 - 2002</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compétences techniques -->
+            <section class="mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-amber-400 pb-2">
+                    <i class="fas fa-laptop-code text-amber-500 mr-2"></i>Compétences techniques
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-desktop text-amber-500 mr-1"></i>Logiciels
+                        </h4>
+                        <p class="text-sm text-gray-700">Pack Office, PVSyst, AutoCAD, outils de monitoring</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-network-wired text-amber-500 mr-1"></i>Réseaux & Protocoles
+                        </h4>
+                        <p class="text-sm text-gray-700">Modbus RTU/TCP, LoRaWAN, réseaux industriels</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-2">
+                            <i class="fas fa-microchip text-amber-500 mr-1"></i>Instrumentation
+                        </h4>
+                        <p class="text-sm text-gray-700">Capteurs analogiques, systèmes de mesure, acquisition données</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Habilitations et langues -->
+            <section>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 border-b-2 border-amber-400 pb-2">
+                            <i class="fas fa-certificate text-amber-500 mr-2"></i>Habilitations
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center">
+                                <i class="fas fa-bolt text-amber-500 mr-2"></i>
+                                Habilitation Électrique BR-H2V
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-helicopter text-amber-500 mr-2"></i>
+                                Brevet Télépilote Drone
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-hard-hat text-amber-500 mr-2"></i>
+                                SST (Sauveteur Secouriste du Travail)
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-arrow-up text-amber-500 mr-2"></i>
+                                Permis Nacelle
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-tools text-amber-500 mr-2"></i>
+                                Travail en hauteur
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 border-b-2 border-amber-400 pb-2">
+                            <i class="fas fa-language text-amber-500 mr-2"></i>Langues
+                        </h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Français</span>
+                                    <span class="text-xs text-gray-500">Natif</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-amber-500 h-2 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Anglais</span>
+                                    <span class="text-xs text-gray-500">B2 (800 TOEIC)</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-amber-500 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-100 p-6 text-center text-xs text-gray-500 print:bg-white">
+            <p>Laurent Leynaud - Ingénieur Photovoltaïque | lleynaud@gmail.com | 06 62 83 41 95</p>
+            <p class="no-print mt-2">Portfolio en ligne : <a href="./index.html" class="text-amber-600">laurent-leynaud.com</a></p>
+        </footer>
+    </div>
+</body>
+</html>

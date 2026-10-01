@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurent Leynaud - Ingénieur Photovoltaïque</title>
+    <meta name="description" content="Portfolio professionnel de Laurent Leynaud, Ingénieur Photovoltaïque avec 15 ans d'expérience dans les énergies renouvelables">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Thème (design system) -->
+    <link rel="stylesheet" href="css/theme.css">
+    
+    <style>
+        /* Règles structurelles minimales (le style visuel est dans css/theme.css) */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            transform: translateX(-50%);
+        }
+        .timeline-item { position: relative; }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold text-white font-display tracking-tight">
+                    <i class="fas fa-solar-panel mr-2 brand-mark text-amber-400"></i>Laurent Leynaud
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="nav-link text-white hover:text-yellow-300 transition-colors" data-nav="home">Accueil</a>
+                    <a href="#experience" class="nav-link text-white hover:text-yellow-300 transition-colors" data-nav="experience">Expérience</a>
+                    <a href="#projets" class="nav-link text-white hover:text-yellow-300 transition-colors" data-nav="projects">Projets</a>
+                    <a href="#competences" class="nav-link text-white hover:text-yellow-300 transition-colors" data-nav="skills">Compétences</a>
+                    <a href="#installation" class="nav-link text-white hover:text-yellow-300 transition-colors" data-nav="lab">Laboratoire</a>
+                    <a href="#contact" class="nav-link text-white hover:text-yellow-300 transition-colors" data-nav="contact">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Language switcher -->
+                    <div class="hidden md:flex items-center space-x-2">
+                        <button id="lang-fr" class="lang-btn active px-3 py-1 rounded text-sm font-semibold bg-white/20 text-white hover:bg-white/30 transition-all">FR</button>
+                        <button id="lang-en" class="lang-btn px-3 py-1 rounded text-sm font-semibold text-white/70 hover:text-white hover:bg-white/20 transition-all">EN</button>
+                    </div>
+                    
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-white hover:text-yellow-300">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Menu mobile -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#accueil" class="block py-2 text-white hover:text-yellow-300 transition-colors" data-nav="home">Accueil</a>
+                <a href="#experience" class="block py-2 text-white hover:text-yellow-300 transition-colors" data-nav="experience">Expérience</a>
+                <a href="#projets" class="block py-2 text-white hover:text-yellow-300 transition-colors" data-nav="projects">Projets</a>
+                <a href="#competences" class="block py-2 text-white hover:text-yellow-300 transition-colors" data-nav="skills">Compétences</a>
+                <a href="#installation" class="block py-2 text-white hover:text-yellow-300 transition-colors" data-nav="lab">Laboratoire</a>
+                <a href="#contact" class="block py-2 text-white hover:text-yellow-300 transition-colors" data-nav="contact">Contact</a>
+                
+                <!-- Language switcher mobile -->
+                <div class="flex items-center space-x-2 mt-4 pt-2 border-t border-white/20">
+                    <span class="text-white/70 text-sm">Langue:</span>
+                    <button id="lang-fr-mobile" class="lang-btn-mobile active px-3 py-1 rounded text-sm font-semibold bg-white/20 text-white hover:bg-white/30 transition-all">FR</button>
+                    <button id="lang-en-mobile" class="lang-btn-mobile px-3 py-1 rounded text-sm font-semibold text-white/70 hover:text-white hover:bg-white/20 transition-all">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="accueil" class="min-h-screen bg-solar-gradient flex items-center justify-center relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center text-white relative z-10 py-28">
+            <div class="animate-fadeInUp">
+                <div class="mb-8">
+                    <div class="w-40 h-40 md:w-44 md:h-44 mx-auto mb-8 rounded-2xl overflow-hidden ring-1 ring-amber-400/40 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="./images/laurent-portrait-v4.jpg" alt="Laurent Leynaud - Ingénieur Photovoltaïque" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <p class="eyebrow mb-5" data-hero="eyebrow">Énergie solaire · Audit · R&amp;D</p>
+
+                <h1 class="text-5xl md:text-7xl font-bold mb-5 font-display">
+                    Laurent Leynaud
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl font-medium mb-8 text-amber-300" data-hero="title">
+                    Ingénieur Photovoltaïque
+                </h2>
+                
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed text-slate-300" data-hero="description">
+                    <strong class="text-white">17 ans d'expérience</strong> dans le développement, l'exploitation et l'optimisation de centrales photovoltaïques. 
+                    Spécialisé en audit technique et maintenance des systèmes photovoltaïques.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="scrollToSection('experience')" class="btn-solar px-7 py-3.5 w-full sm:w-auto" data-hero="btn-experience">
+                        <i class="fas fa-briefcase mr-2"></i><span>Voir mon expérience</span>
+                    </button>
+                    
+                    <button onclick="scrollToSection('projets')" class="btn-ghost px-7 py-3.5 w-full sm:w-auto" data-hero="btn-projects">
+                        <i class="fas fa-diagram-project mr-2"></i><span>Mes projets</span>
+                    </button>
+                    
+                    <a href="#" id="cv-download-link" class="btn-ghost px-7 py-3.5 w-full sm:w-auto inline-flex items-center justify-center" data-hero="btn-cv">
+                        <i class="fas fa-download mr-2"></i><span>Télécharger CV</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicateur de scroll -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-slate-500 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Section Statistiques Rapides -->
+    <section class="py-14 bg-white border-b border-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-4 divide-slate-200 md:divide-x">
+                <div class="text-center px-4">
+                    <div class="text-4xl md:text-5xl font-bold text-slate-900 mb-2 font-display">17<span class="text-amber-500">.</span></div>
+                    <div class="text-sm text-slate-500 uppercase tracking-wide" data-stats="years">Années d'expérience</div>
+                </div>
+                
+                <div class="text-center px-4">
+                    <div class="text-4xl md:text-5xl font-bold text-slate-900 mb-2 font-display">30<span class="text-amber-500 text-2xl align-top">MW</span></div>
+                    <div class="text-sm text-slate-500 uppercase tracking-wide" data-stats="power">Puissance gérée</div>
+                </div>
+                
+                <div class="text-center px-4">
+                    <div class="text-4xl md:text-5xl font-bold text-slate-900 mb-2 font-display">160<span class="text-amber-500">+</span></div>
+                    <div class="text-sm text-slate-500 uppercase tracking-wide" data-stats="plants">Centrales auditées</div>
+                </div>
+                
+                <div class="text-center px-4">
+                    <div class="text-4xl md:text-5xl font-bold text-slate-900 mb-2 font-display">R<span class="text-amber-500">&amp;</span>D</div>
+                    <div class="text-sm text-slate-500 uppercase tracking-wide" data-stats="rd">Innovation continue</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Expérience Professionnelle -->
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-slate-900 mb-8" data-exp="title">Expérience Professionnelle</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto" data-exp="subtitle">
+                    Un parcours de 17 ans dans l'industrie photovoltaïque, de la technique à la R&D
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline relative">
+                    <!-- Expérience 1 : Feedgy -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row">
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-solar-card p-6 rounded-xl card-hover">
+                                <div class="text-xs text-amber-600 font-semibold mb-2 uppercase tracking-wider">2020 - Présent</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-1 font-display">Ingénieur Photovoltaïque</h3>
+                                <div class="text-base font-medium text-slate-500 mb-4">Feedgy (Paris) - Home Office</div>
+                                
+                                <ul class="text-gray-600 space-y-2 text-left">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-cogs text-blue-500 mr-3 mt-1"></i>
+                                        Chef de projets R&D
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-search text-green-500 mr-3 mt-1"></i>
+                                        Audit de centrales PV (rétrofit, mise en service)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-headset text-purple-500 mr-3 mt-1"></i>
+                                        Support technique multi-niveaux (commerciaux, BE, clients finaux)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-microchip text-orange-500 mr-3 mt-1"></i>
+                                        Instrumentation (LoRaWan, Modbus, capteurs analogiques)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-lightbulb text-yellow-500 mr-3 mt-1"></i>
+                                        Développement solution détection défauts d'isolement
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-robot text-indigo-500 mr-3 mt-1"></i>
+                                        Construction d'un agent IA avec Hermes : support technique, capitalisation des retours d'expérience terrain et calculs de performance des centrales rétrofitées
+                                    </li>
+                                </ul>
+                                
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="tag">R&D</span>
+                                    <span class="tag">Audit</span>
+                                    <span class="tag">IoT</span>
+                                    <span class="tag tag-ai">IA</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-slate-50 border-l-2 border-amber-400 p-6 rounded-r-xl">
+                                <h4 class="font-bold text-gray-800 mb-3">Réalisations Clés</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• Innovation en détection de défauts</li>
+                                    <li>• Optimisation performances centrales</li>
+                                    <li>• Solutions IoT intégrées</li>
+                                    <li>• Agent IA développé avec Hermes pour le support technique</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expérience 2 : Soligest -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row">
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-slate-50 border-l-2 border-amber-400 p-6 rounded-r-xl">
+                                <h4 class="font-bold text-gray-800 mb-3">Impact Quantifié</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• <strong>110 centrales</strong> gérées</li>
+                                    <li>• <strong>23 MWc</strong> de puissance</li>
+                                    <li>• Maintenance préventive optimisée</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-solar-card p-6 rounded-xl card-hover">
+                                <div class="text-xs text-amber-600 font-semibold mb-2 uppercase tracking-wider">2012 - 2020</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-1 font-display">Chargé d'Exploitation</h3>
+                                <div class="text-base font-medium text-slate-500 mb-4">Soligest - Montélimar (26)</div>
+                                
+                                <ul class="text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chart-line text-green-500 mr-3 mt-1"></i>
+                                        Exploitation parc 110 centrales PV (23MWc)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-search text-blue-500 mr-3 mt-1"></i>
+                                        Audit de centrales photovoltaïques
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-tools text-orange-500 mr-3 mt-1"></i>
+                                        Diagnostic, réparation et maintenance onduleurs (strings et centraux)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-network-wired text-purple-500 mr-3 mt-1"></i>
+                                        Systèmes communication (HTA, Modbus)
+                                    </li>
+                                </ul>
+                                
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="tag">Exploitation</span>
+                                    <span class="tag">Maintenance</span>
+                                    <span class="tag">Modbus</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expérience 3 : Samsolar -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row">
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-solar-card p-6 rounded-xl card-hover">
+                                <div class="text-xs text-amber-600 font-semibold mb-2 uppercase tracking-wider">2010 - 2012</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-1 font-display">Chef de Projet</h3>
+                                <div class="text-lg font-medium text-gray-600 mb-4">Samsolar - Montélimar (26)</div>
+                                
+                                <ul class="text-gray-600 space-y-2 text-left">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-chart-bar text-blue-500 mr-3 mt-1"></i>
+                                        Développement suivi de production
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-solar-panel text-yellow-500 mr-3 mt-1"></i>
+                                        Exploitation parc 50 centrales (7MWc)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-university text-green-500 mr-3 mt-1"></i>
+                                        Contrat recherche avec l'INES (CEA)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-plug text-purple-500 mr-3 mt-1"></i>
+                                        Études installations raccordées réseau
+                                    </li>
+                                </ul>
+                                
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="tag">Développement</span>
+                                    <span class="tag">Recherche</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-slate-50 border-l-2 border-amber-400 p-6 rounded-r-xl">
+                                <h4 class="font-bold text-gray-800 mb-3">Partenariats R&D</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• Collaboration avec l'INES (CEA)</li>
+                                    <li>• Optimisation centrales PV</li>
+                                    <li>• <strong>7 MWc</strong> sous gestion</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expérience 4 : ID Solaire -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row">
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-slate-50 border-l-2 border-amber-400 p-6 rounded-r-xl">
+                                <h4 class="font-bold text-gray-800 mb-3">Fondations Techniques</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• Premières expertises PV</li>
+                                    <li>• Maîtrise des installations</li>
+                                    <li>• Approche terrain</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-solar-card p-6 rounded-xl card-hover">
+                                <div class="text-xs text-amber-600 font-semibold mb-2 uppercase tracking-wider">2008 - 2010</div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-1 font-display">Technicien Études</h3>
+                                <div class="text-lg font-medium text-gray-600 mb-4">ID Solaire - Aubenas (07)</div>
+                                
+                                <p class="text-gray-600">
+                                    Étude et installation de systèmes photovoltaïques - Acquisition des bases techniques et opérationnelles du secteur PV
+                                </p>
+                                
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="tag">Études</span>
+                                    <span class="tag">Installation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets/Réalisations -->
+    <section id="projets" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-slate-900 mb-8" data-projects="title">Projets & Réalisations</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto" data-projects="subtitle">
+                    Découvrez quelques-uns de mes projets marquants dans le domaine photovoltaïque
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Projet 1 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-search text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Système de Détection de Défauts</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Développement d'une solution de détection et localisation de défauts d'isolement pour centrales PV.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Recherche</span>
+                            <span class="tag">Développement</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2020-2024 - Feedgy
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-chart-line text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Optimisation Parc 23MWc</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Gestion et optimisation d'un parc de 110 centrales photovoltaïques pour une puissance totale de 23 MWc.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Exploitation</span>
+                            <span class="tag">Maintenance</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2012-2020 - Soligest
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-university text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Recherche INES-CEA</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Collaboration avec l'INES (CEA) sur un contrat de recherche pour l'optimisation des centrales photovoltaïques.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Recherche</span>
+                            <span class="tag">Partenariat</span>
+                            <span class="tag">CEA</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2010-2012 - Samsolar
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-microchip text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Solutions IoT Intégrées</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Développement et intégration de solutions IoT (LoRaWan, Modbus, capteurs analogiques) pour le monitoring.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">LoRaWan</span>
+                            <span class="tag">Modbus</span>
+                            <span class="tag">Monitoring</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2020-2024 - Feedgy
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 5 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-wrench text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Diagnostic & Réparation Onduleurs</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Expertise approfondie en diagnostic, réparation et maintenance d'onduleurs photovoltaïques strings et centraux sur 110 centrales.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Diagnostic</span>
+                            <span class="tag">Réparation</span>
+                            <span class="tag">Onduleurs</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2012-2020 - Soligest
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 6 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-headset text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Support Technique Multi-niveaux</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Support technique spécialisé pour équipes commerciales, bureaux d'études et clients finaux sur systèmes photovoltaïques complexes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Support Client</span>
+                            <span class="tag">Expertise BE</span>
+                            <span class="tag">Formation</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2020-2024 - Feedgy
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 7 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-network-wired text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Systèmes de Communication</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Développement et entretien des systèmes de communication HTA et Modbus pour centrales PV.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">HTA</span>
+                            <span class="tag">Modbus</span>
+                            <span class="tag">Communication</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2012-2020 - Soligest
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 8 -->
+                <div class="bg-solar-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-44 project-visual flex items-center justify-center">
+                        <i class="fas fa-robot text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-slate-900 mb-3">Outils IA Métiers pour le PV</h3>
+                        <p class="text-slate-500 text-sm mb-4 leading-relaxed">
+                            Conception d'outils métiers basés sur des agents et outils IA (cloud et local) : analyse de performance des centrales, support technique et capitalisation des retours d'expérience terrain.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag tag-ai">IA</span>
+                            <span class="tag">Agents</span>
+                            <span class="tag">Cloud &amp; Local</span>
+                        </div>
+                        <div class="text-xs text-slate-400 font-medium">
+                            <i class="fas fa-calendar mr-2"></i>2024-Présent - Feedgy
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="competences" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-slate-900 mb-8" data-skills="title">Compétences & Expertise</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto" data-skills="subtitle">
+                    17 ans d'expérience m'ont permis de développer une solide maîtrise dans le secteur photovoltaïque
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Compétences Techniques -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center font-display">
+                        <i class="fas fa-cogs text-amber-500 mr-3"></i><span data-skills="technical">Compétences Techniques</span>
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-700">Systèmes Photovoltaïques</span>
+                                <span class="text-sm text-gray-500">Confirmé</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-700">Audit et Diagnostic</span>
+                                <span class="text-sm text-gray-500">Confirmé</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-700">IoT & Instrumentation</span>
+                                <span class="text-sm text-gray-500">Avancé</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-700">Diagnostic & Réparation Onduleurs</span>
+                                <span class="text-sm text-gray-500">Confirmé</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-700">Systèmes de Communication</span>
+                                <span class="text-sm text-gray-500">Confirmé</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-semibold text-gray-700">IA appliquée au Photovoltaïque</span>
+                                <span class="text-sm text-gray-500">Avancé</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+                                Utilisation d'agents et d'outils IA (cloud et local) pour créer des outils métiers appliqués au PV : analyse de performance, support technique, capitalisation des retours d'expérience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technologies & Outils -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center font-display">
+                        <i class="fas fa-laptop-code text-amber-500 mr-3"></i><span data-skills="tools">Technologies & Outils</span>
+                    </h3>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:border-amber-300 transition-colors">
+                            <i class="fas fa-desktop text-slate-700 text-2xl mb-2"></i>
+                            <div class="font-semibold text-slate-900">PVSyst</div>
+                            <div class="text-sm text-slate-500">Simulation PV</div>
+                        </div>
+                        
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:border-amber-300 transition-colors">
+                            <i class="fas fa-network-wired text-slate-700 text-2xl mb-2"></i>
+                            <div class="font-semibold text-slate-900">Modbus</div>
+                            <div class="text-sm text-slate-500">Communication</div>
+                        </div>
+                        
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:border-amber-300 transition-colors">
+                            <i class="fas fa-wifi text-slate-700 text-2xl mb-2"></i>
+                            <div class="font-semibold text-slate-900">LoRaWan</div>
+                            <div class="text-sm text-slate-500">IoT Sans fil</div>
+                        </div>
+                        
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:border-amber-300 transition-colors">
+                            <i class="fas fa-file-excel text-slate-700 text-2xl mb-2"></i>
+                            <div class="font-semibold text-slate-900">Pack Office</div>
+                            <div class="text-sm text-slate-500">Bureautique</div>
+                        </div>
+                        
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:border-amber-300 transition-colors">
+                            <i class="fas fa-microchip text-slate-700 text-2xl mb-2"></i>
+                            <div class="font-semibold text-slate-900">Capteurs</div>
+                            <div class="text-sm text-slate-500">Analogiques</div>
+                        </div>
+                        
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:border-amber-300 transition-colors">
+                            <i class="fas fa-chart-line text-slate-700 text-2xl mb-2"></i>
+                            <div class="font-semibold text-slate-900">Monitoring</div>
+                            <div class="text-sm text-slate-500">Performance</div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 text-center hover:border-amber-300 transition-colors">
+                            <i class="fas fa-robot text-slate-700 text-2xl mb-2"></i>
+                            <div class="font-semibold text-slate-900">Agents IA</div>
+                            <div class="text-sm text-slate-500">Cloud & Local</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formations & Certifications -->
+            <div class="mt-12 bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-900 mb-8 text-center flex items-center justify-center font-display">
+                    <i class="fas fa-graduation-cap text-amber-500 mr-3"></i><span data-skills="education">Formation & Certifications</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Formation -->
+                    <div class="border-l-2 border-amber-400 pl-4">
+                        <h4 class="font-bold text-slate-900 mb-2 font-display">Formation Académique</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="text-gray-600">
+                                <strong>2010-2012:</strong> Ingénieur CNAM Énergétique
+                            </div>
+                            <div class="text-gray-600">
+                                <strong>2008-2009:</strong> Licence Énergie Éolienne & PV
+                            </div>
+                            <div class="text-gray-600">
+                                <strong>2002-2003:</strong> Licence Pro Matériaux Polymères
+                            </div>
+                            <div class="text-gray-600">
+                                <strong>1999-2002:</strong> DUT Sciences et Génie des Matériaux
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Habilitations -->
+                    <div class="border-l-2 border-amber-400 pl-4">
+                        <h4 class="font-bold text-slate-900 mb-2 font-display">Habilitations</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-bolt text-amber-500 mr-2"></i>
+                                Habilitation Électrique BR-H2V
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-helicopter text-amber-500 mr-2"></i>
+                                Brevet Pilote Drone
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-hard-hat text-amber-500 mr-2"></i>
+                                SST & Travail en Hauteur
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-arrow-up text-amber-500 mr-2"></i>
+                                Permis Nacelle
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Langues -->
+                    <div class="border-l-2 border-amber-400 pl-4">
+                        <h4 class="font-bold text-slate-900 mb-2 font-display">Langues</h4>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-gray-600">Français</span>
+                                    <span class="text-xs text-gray-500">Natif</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-amber-500 h-2 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-gray-600">Anglais</span>
+                                    <span class="text-xs text-gray-500">B2 (800 TOEIC)</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-amber-500 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Installation Personnelle -->
+    <section id="installation" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-slate-900 mb-8" data-lab="title">Installation & Laboratoire Personnel</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto" data-lab="subtitle">
+                    Laboratoire de test et installation solaire personnelle
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Banc de Test -->
+                <div class="bg-solar-card rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-microscope text-2xl text-amber-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 font-display">Banc de Test Personnel</h3>
+                            <p class="text-gray-600">Modules PV & Capteurs</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo banc de test -->
+                    <div class="mb-6">
+                        <img src="./images/banc-de-test.jpg" alt="Banc de test modules photovoltaïques et capteurs" class="w-full h-48 object-cover rounded-xl shadow-lg">
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-solar-panel text-blue-500 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Test de modules photovoltaïques</h4>
+                                <p class="text-gray-600 text-sm">Caractérisation et validation des performances</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-thermometer-half text-orange-500 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Instrumentation capteurs</h4>
+                                <p class="text-gray-600 text-sm">Test et étalonnage de capteurs analogiques</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-line text-green-500 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Analyse de données</h4>
+                                <p class="text-gray-600 text-sm">Mesures et validation expérimentale</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Installation Solaire -->
+                <div class="bg-solar-card rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-battery-full text-2xl text-amber-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 font-display">Installation d'une Batterie Solaire 14,5kWh</h3>
+                            <p class="text-gray-600">Montage complet</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo batterie -->
+                    <div class="mb-6">
+                        <img src="./images/batterie.jpg" alt="Batterie lithium 14,5kWh assemblée personnellement" class="w-full h-48 object-cover rounded-xl shadow-lg">
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-sliders-h text-blue-500 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Test et optimisation des paramétrages</h4>
+                                <p class="text-gray-600 text-sm">Ajustement et validation des configurations</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-tools text-green-500 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Montage complet</h4>
+                                <p class="text-gray-600 text-sm">Assemblage et mise en service du système</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-home text-purple-500 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Autonomie énergétique</h4>
+                                <p class="text-gray-600 text-sm">Application pratique de l'expertise PV</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Laboratoire complet -->
+            <div class="mt-12 bg-slate-50 border border-slate-200 rounded-2xl p-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4 font-display">Laboratoire de Validation</h3>
+                    <p class="text-gray-600 max-w-3xl mx-auto">
+                        Espace personnel dédié à l'expérimentation et la validation d'équipements photovoltaïques
+                    </p>
+                </div>
+                
+                <!-- Contenu avec photo laboratoire côté gauche -->
+                <div class="flex flex-col lg:flex-row gap-8 mb-8">
+                    <!-- Photo laboratoire - Moitié gauche format 4/3 -->
+                    <div class="lg:w-1/2">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <div class="relative overflow-hidden rounded-lg">
+                                <!-- Format 4/3 optimisé pour montrer l'oscilloscope -->
+                                <div class="aspect-[4/3] relative">
+                                    <img src="./images/laboratoire.jpg" 
+                                         alt="Laboratoire personnel - Oscilloscope et équipements de mesure" 
+                                         class="absolute inset-0 w-full h-full object-cover"
+                                         style="object-position: left center;">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <h5 class="font-semibold text-gray-800">Banc de Test Personnel</h5>
+                                <p class="text-sm text-gray-600 mt-2">Oscilloscope et équipements de mesure PV</p>
+                                <div class="mt-3 flex items-center justify-center space-x-4 text-xs text-gray-500">
+                                    <span><i class="fas fa-wave-square mr-1"></i>Oscilloscope</span>
+                                    <span><i class="fas fa-tools mr-1"></i>Instruments</span>
+                                    <span><i class="fas fa-battery-three-quarters mr-1"></i>14,5kWh</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contenu principal - Moitié droite -->
+                    <div class="lg:w-1/2">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="text-center p-6 bg-white rounded-lg border border-slate-200">
+                                <i class="fas fa-cogs text-3xl text-amber-500 mb-4"></i>
+                                <h4 class="font-bold text-slate-900 mb-3 font-display">Équipements de Test</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Oscilloscope numérique, multimètres de précision et analyseurs de performance photovoltaïque
+                                </p>
+                            </div>
+                            
+                            <div class="text-center p-6 bg-white rounded-lg border border-slate-200">
+                                <i class="fas fa-clipboard-check text-3xl text-amber-500 mb-4"></i>
+                                <h4 class="font-bold text-slate-900 mb-3 font-display">Protocoles de Mesure</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Caractérisation IV, analyse harmonique et validation des performances énergétiques
+                                </p>
+                            </div>
+                            
+                            <div class="text-center p-6 bg-white rounded-lg border border-slate-200">
+                                <i class="fas fa-lightbulb text-3xl text-amber-500 mb-4"></i>
+                                <h4 class="font-bold text-slate-900 mb-3 font-display">Innovation Continue</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    Développement de méthodes de diagnostic et amélioration des techniques d'analyse
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Témoignage passion -->
+            <div class="mt-14 text-center">
+                <i class="fas fa-quote-left text-3xl text-amber-400/50 mb-4"></i>
+                <blockquote class="text-xl md:text-2xl text-slate-700 max-w-3xl mx-auto font-display font-medium leading-relaxed">
+                    Cette installation personnelle me permet d'expérimenter, de valider et d'approfondir 
+                    continuellement mes connaissances techniques, principalement dans le cadre professionnel.
+                </blockquote>
+                <div class="mt-5 text-sm text-slate-400 uppercase tracking-widest">Laurent Leynaud</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-20 bg-solar-gradient text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-3xl md:text-4xl font-bold mb-8 font-display" data-contact="title">Contactez-moi</h2>
+                <p class="text-lg text-slate-300 max-w-2xl mx-auto" data-contact="subtitle">
+                    Intéressé par mon profil ? Discutons de vos projets photovoltaïques et énergies renouvelables
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Informations de contact -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 font-display" data-contact="info">Informations de Contact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-amber-500/15 border border-amber-400/30 rounded-lg flex items-center justify-center mr-4 text-amber-400">
+                                    <i class="fas fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Email</div>
+                                    <div class="text-white/80">lleynaud@gmail.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-amber-500/15 border border-amber-400/30 rounded-lg flex items-center justify-center mr-4 text-amber-400">
+                                    <i class="fas fa-phone text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Téléphone</div>
+                                    <div class="text-white/80">06 62 83 41 95</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-amber-500/15 border border-amber-400/30 rounded-lg flex items-center justify-center mr-4 text-amber-400">
+                                    <i class="fab fa-linkedin text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">LinkedIn</div>
+                                    <div class="text-white/80">laurent-leynaud-solarpvtech</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-amber-500/15 border border-amber-400/30 rounded-lg flex items-center justify-center mr-4 text-amber-400">
+                                    <i class="fas fa-map-marker-alt text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">Localisation</div>
+                                    <div class="text-white/80">Upié (26) - Drôme - Télétravail disponible</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Disponibilité -->
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
+                        <h4 class="text-lg font-bold mb-4 font-display" data-contact="availability">Disponibilité</h4>
+                        <div class="space-y-2 text-white/90">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-amber-400 mr-3"></i>
+                                Missions de conseil et d'expertise
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-amber-400 mr-3"></i>
+                                Projets R&D collaboratifs
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-amber-400 mr-3"></i>
+                                Audits techniques spécialisés
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-amber-400 mr-3"></i>
+                                Formations techniques
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulaire de contact -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                    <h3 class="text-xl font-bold mb-6 font-display" data-contact="form-title">Envoyez-moi un message</h3>
+                    
+                    <form id="contact-form" method="POST" class="space-y-6">
+                        <!-- Champs cachés pour Formspree -->
+                        <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio Laurent Leynaud">
+                        <input type="hidden" name="_replyto" value="">
+                        <input type="hidden" name="_format" value="plain">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="lastname" class="block text-sm font-semibold mb-2" data-form="lastname">Nom</label>
+                                <input type="text" id="lastname" name="lastname" required class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-amber-400 focus:bg-white/30 transition-all" placeholder="Votre nom">
+                            </div>
+                            <div>
+                                <label for="firstname" class="block text-sm font-semibold mb-2" data-form="firstname">Prénom</label>
+                                <input type="text" id="firstname" name="firstname" required class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-amber-400 focus:bg-white/30 transition-all" placeholder="Votre prénom">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-semibold mb-2" data-form="email">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-amber-400 focus:bg-white/30 transition-all" placeholder="votre.email@exemple.com">
+                        </div>
+                        
+                        <div>
+                            <label for="company" class="block text-sm font-semibold mb-2" data-form="company">Entreprise</label>
+                            <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-amber-400 focus:bg-white/30 transition-all" placeholder="Nom de votre entreprise">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-semibold mb-2" data-form="subject">Sujet</label>
+                            <select id="subject" name="subject" required class="contact-select w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:border-amber-400 focus:bg-white/30 transition-all">
+                                <option value="" data-form="choose-subject" class="text-gray-800 bg-white">Choisissez un sujet</option>
+                                <option value="conseil" data-form="consulting" class="text-gray-800 bg-white">Conseil et expertise</option>
+                                <option value="audit" data-form="audit" class="text-gray-800 bg-white">Audit technique</option>
+                                <option value="rd" data-form="rd" class="text-gray-800 bg-white">Projet R&D</option>
+                                <option value="formation" data-form="training" class="text-gray-800 bg-white">Formation</option>
+                                <option value="autre" data-form="other" class="text-gray-800 bg-white">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-semibold mb-2" data-form="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-amber-400 focus:bg-white/30 transition-all resize-none" placeholder="Décrivez votre projet ou vos besoins..."></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submit-btn" class="btn-solar w-full px-8 py-4">
+                            <i class="fas fa-paper-plane mr-2"></i><span data-form="send">Envoyer le message</span>
+                        </button>
+                        
+                        <!-- Messages de statut -->
+                        <div id="form-status" class="hidden text-center p-4 rounded-lg"></div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Actions de téléchargement -->
+            <div class="text-center mt-16">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#" id="cv-download-contact" class="btn-solar px-7 py-3.5 w-full sm:w-auto inline-flex items-center justify-center">
+                        <i class="fas fa-download mr-2"></i><span data-contact="btn-cv">Télécharger CV PDF</span>
+                    </a>
+                    
+                    <a href="#" class="btn-ghost px-7 py-3.5 w-full sm:w-auto inline-flex items-center justify-center">
+                        <i class="fas fa-file-alt mr-2"></i>Dossier de compétences
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-xl font-bold mb-4 font-display">
+                    <i class="fas fa-solar-panel mr-2 text-amber-400"></i>Laurent Leynaud
+                </div>
+                <p class="text-slate-400 mb-6" data-footer="description">Ingénieur Photovoltaïque - Expert en Énergies Renouvelables</p>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="https://www.linkedin.com/in/laurent-leynaud-solarpvtech/" target="_blank" class="text-slate-400 hover:text-amber-400 transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="mailto:lleynaud@gmail.com" class="text-slate-400 hover:text-amber-400 transition-colors">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="tel:0662834195" class="text-slate-400 hover:text-amber-400 transition-colors">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-slate-800 pt-6 text-slate-500 text-sm">
+                    <p>&copy; 2024 Laurent Leynaud. <span data-footer="copyright">Tous droits réservés. | Portfolio Professionnel</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

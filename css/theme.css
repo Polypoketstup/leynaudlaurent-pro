@@ -1,0 +1,263 @@
+/* ============================================================
+   Laurent Leynaud — Système de design "Solar Engineering"
+   Palette : Ardoise profond + Ambre solaire (accent unique)
+   Typo    : Space Grotesk (titres) / Inter (corps)
+   ============================================================ */
+
+:root {
+    --slate-950: #0b1120;
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50:  #f8fafc;
+
+    --amber-600: #d97706;
+    --amber-500: #f59e0b;
+    --amber-400: #fbbf24;
+    --amber-300: #fcd34d;
+
+    --ring: rgba(245, 158, 11, 0.35);
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 6px 24px -8px rgba(15, 23, 42, 0.18);
+    --shadow-lg: 0 18px 48px -16px rgba(15, 23, 42, 0.28);
+}
+
+/* ---------- Typographie ---------- */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--slate-800);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4,
+.font-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* Petit label technique en capitales espacées (eyebrow) */
+.eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--amber-600);
+}
+.eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 2px;
+    background: var(--amber-500);
+    vertical-align: middle;
+    margin-right: 0.6rem;
+    margin-bottom: 3px;
+}
+
+/* ---------- Fond hero : ardoise + grille technique + halo solaire ---------- */
+.bg-solar-gradient {
+    background-color: var(--slate-950);
+    background-image:
+        radial-gradient(1100px 620px at 78% -8%, rgba(245, 158, 11, 0.20), transparent 60%),
+        radial-gradient(720px 520px at 12% 108%, rgba(56, 189, 248, 0.10), transparent 60%),
+        linear-gradient(180deg, var(--slate-950) 0%, var(--slate-900) 100%);
+    position: relative;
+}
+/* Grille fine "plan technique" */
+.bg-solar-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 55%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, #000 55%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Ancien conteneur de particules neutralisé (plus de particules décoratives) */
+.particles { display: none !important; }
+
+/* ---------- Cartes ---------- */
+.bg-solar-card {
+    background: #ffffff;
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+    border-radius: 14px;
+}
+
+.card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(245, 158, 11, 0.45);
+}
+
+/* ---------- Accent bar : petit trait sous les titres de section ---------- */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -14px;
+    transform: translateX(-50%);
+    width: 54px;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--amber-500), var(--amber-300));
+}
+
+/* ---------- Boutons ---------- */
+.btn-solar {
+    background: var(--amber-500);
+    color: var(--slate-950);
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 20px -8px rgba(245, 158, 11, 0.6);
+}
+.btn-solar:hover {
+    background: var(--amber-400);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    border: 1px solid rgba(226, 232, 240, 0.35);
+    color: #ffffff;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+    border-color: var(--amber-400);
+    color: var(--amber-300);
+    transform: translateY(-2px);
+}
+
+/* ---------- Puces / tags uniformisés (slate neutre + accent au hover) ---------- */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    background: var(--slate-100);
+    color: var(--slate-700);
+    border: 1px solid var(--slate-200);
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+/* Tag "IA/AI" mis en avant (accent ambre) */
+.tag-ai {
+    background: rgba(245, 158, 11, 0.12);
+    color: var(--amber-600);
+    border-color: rgba(245, 158, 11, 0.35);
+    font-weight: 600;
+}
+
+/* ---------- Navigation ---------- */
+#navbar { transition: all 0.3s ease; }
+.nav-sticky {
+    backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06), var(--shadow-sm);
+}
+.nav-sticky .nav-link { color: var(--slate-700) !important; }
+.nav-sticky .nav-link:hover { color: var(--amber-600) !important; }
+.nav-sticky .text-white { color: var(--slate-900) !important; }
+.nav-sticky .brand-mark { color: var(--amber-600) !important; }
+.nav-sticky .lang-btn.active {
+    background-color: var(--slate-900) !important;
+    color: #fff !important;
+}
+.nav-sticky .lang-btn:not(.active) {
+    color: var(--slate-500) !important;
+    border: 1px solid var(--slate-200);
+}
+.nav-sticky .lang-btn:not(.active):hover {
+    color: var(--slate-900) !important;
+    background-color: var(--slate-100) !important;
+}
+.nav-sticky #mobile-menu-btn { color: var(--slate-900) !important; }
+.nav-sticky #mobile-menu-btn:hover { color: var(--amber-600) !important; }
+
+.nav-link { position: relative; }
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: var(--amber-500);
+    transition: width 0.25s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ---------- Timeline ---------- */
+.timeline::before {
+    background: linear-gradient(to bottom, var(--amber-400), var(--slate-300));
+}
+.timeline-dot {
+    background: var(--amber-500);
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.18);
+}
+
+/* ---------- Visuel projet : fond ardoise uniforme + icône ambre ---------- */
+.project-visual {
+    background: linear-gradient(135deg, var(--slate-800), var(--slate-900));
+    position: relative;
+    overflow: hidden;
+}
+.project-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.10) 1px, transparent 1px);
+    background-size: 26px 26px;
+    opacity: 0.5;
+}
+.project-visual i {
+    color: var(--amber-400);
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Animations (conservées, un peu plus sobres) ---------- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp { animation: fadeInUp 0.7s ease-out both; }
+.animate-slideInLeft { animation: slideInLeft 0.6s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-fadeInUp, .animate-slideInLeft { animation: none; }
+}
+
+/* ---------- Select formulaire ---------- */
+select.contact-select { color: #fff; }
+select.contact-select option {
+    color: var(--slate-800) !important;
+    background-color: #fff !important;
+    padding: 8px 12px;
+}
