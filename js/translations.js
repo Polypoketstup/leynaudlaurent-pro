@@ -11,7 +11,7 @@ const translations = {
         
         // Hero Section
         hero_title: "Ingénieur Photovoltaïque",
-        hero_description: "<strong>17 ans d'expérience</strong> dans le développement, l'exploitation et l'optimisation de centrales photovoltaïques. Spécialisé en audit technique et maintenance des systèmes photovoltaïques.",
+        hero_description: "<strong>18 ans d'expérience</strong> dans le développement, l'exploitation et l'optimisation de centrales photovoltaïques. Spécialisé en audit technique et maintenance des systèmes photovoltaïques.",
         hero_btn_experience: "Voir mon expérience",
         hero_btn_projects: "Mes projets",
         hero_btn_cv: "Télécharger CV",
@@ -24,7 +24,7 @@ const translations = {
         
         // Experience Section
         exp_title: "Expérience Professionnelle",
-        exp_subtitle: "Un parcours de 17 ans dans l'industrie photovoltaïque, de la technique à la R&D",
+        exp_subtitle: "Un parcours de 18 ans dans l'industrie photovoltaïque, de la technique à la R&D",
         exp_achievements: "Réalisations Clés",
         exp_impact: "Impact Quantifié",
         
@@ -85,7 +85,7 @@ const translations = {
         
         // Skills Section  
         skills_title: "Compétences & Expertise",
-        skills_subtitle: "17 ans d'expérience m'ont permis de développer une solide maîtrise dans le secteur photovoltaïque",
+        skills_subtitle: "18 ans d'expérience m'ont permis de développer une solide maîtrise dans le secteur photovoltaïque",
         skills_technical: "Compétences Techniques",
         skills_tools: "Technologies & Outils",
         
@@ -194,7 +194,7 @@ const translations = {
         
         // Hero Section
         hero_title: "Photovoltaic Engineer",
-        hero_description: "<strong>17 years of experience</strong> in development, operation and optimization of photovoltaic power plants. Specialized in technical auditing and photovoltaic systems maintenance.",
+        hero_description: "<strong>18 years of experience</strong> in development, operation and optimization of photovoltaic power plants. Specialized in technical auditing and photovoltaic systems maintenance.",
         hero_btn_experience: "View my experience",
         hero_btn_projects: "My projects",
         hero_btn_cv: "Download CV",
@@ -207,7 +207,7 @@ const translations = {
         
         // Experience Section
         exp_title: "Professional Experience",  
-        exp_subtitle: "A 17-year journey in the photovoltaic industry, from technical to R&D",
+        exp_subtitle: "An 18-year journey in the photovoltaic industry, from technical to R&D",
         exp_achievements: "Key Achievements",
         exp_impact: "Quantified Impact",
         
@@ -268,7 +268,7 @@ const translations = {
         
         // Skills Section
         skills_title: "Skills & Expertise", 
-        skills_subtitle: "17 years of experience have allowed me to develop solid expertise in the photovoltaic sector",
+        skills_subtitle: "18 years of experience have allowed me to develop solid expertise in the photovoltaic sector",
         skills_technical: "Technical Skills",
         skills_tools: "Technologies & Tools",
         
