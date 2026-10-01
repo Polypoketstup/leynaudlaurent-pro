@@ -1,5 +1,13 @@
 // Portfolio Laurent Leynaud - JavaScript Principal
 
+// ===========================================================================
+// CONFIGURATION DU FORMULAIRE DE CONTACT
+// Remplacez la valeur ci-dessous par la clé d'accès reçue par email
+// lors de l'inscription sur https://web3forms.com (champ "Access Key").
+// C'est la SEULE ligne à modifier pour activer l'envoi des messages.
+// ===========================================================================
+const WEB3FORMS_ACCESS_KEY = 'COLLEZ-VOTRE-CLE-ICI';
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialisation
     initNavigation();
@@ -268,22 +276,44 @@ async function handleContactForm(event) {
     try {
         // Préparer les données du formulaire
         const formData = new FormData(form);
-        
-        // Envoyer via service email simple
-        const emailData = {
-            to_email: 'lleynaud@gmail.com',
-            from_name: `${formData.get('firstname')} ${formData.get('lastname')}`,
-            from_email: formData.get('email'),
-            company: formData.get('company') || 'Non spécifiée',
-            subject_type: formData.get('subject'),
-            message: formData.get('message'),
-            reply_to: formData.get('email')
+
+        // Libellé lisible du sujet choisi dans la liste déroulante
+        const subjectSelect = document.getElementById('subject');
+        const subjectLabel = subjectSelect && subjectSelect.selectedIndex > 0
+            ? subjectSelect.options[subjectSelect.selectedIndex].text
+            : (formData.get('subject') || 'Contact');
+
+        const senderName = `${formData.get('firstname')} ${formData.get('lastname')}`.trim();
+
+        // Envoi via Web3Forms (https://web3forms.com)
+        const payload = {
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `Portfolio — ${subjectLabel} — ${senderName}`,
+            from_name: 'Portfolio Laurent Leynaud',
+            // Web3Forms utilise ce champ comme adresse de réponse
+            email: formData.get('email'),
+            Nom: formData.get('lastname'),
+            Prénom: formData.get('firstname'),
+            Email: formData.get('email'),
+            Entreprise: formData.get('company') || 'Non spécifiée',
+            Sujet: subjectLabel,
+            Message: formData.get('message'),
+            // Piège à robots : rempli uniquement par les spambots
+            botcheck: formData.get('botcheck') || ''
         };
-        
-        // Simulation d'envoi réussi pour démonstration
-        // En production, vous remplacerez ceci par un vrai service d'email
-        const response = await simulateEmailSend(emailData);
-        
+
+        const httpResponse = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await httpResponse.json().catch(() => ({ success: false }));
+        const response = { ok: httpResponse.ok && result.success === true, result };
+
         if (response.ok) {
             // Succès
             statusDiv.className = 'text-center p-4 rounded-lg bg-green-500 text-white';
@@ -304,7 +334,8 @@ async function handleContactForm(event) {
             form.reset();
             
         } else {
-            throw new Error('Erreur serveur');
+            const r = response.result || {};
+            throw new Error(r.message || (r.body && r.body.message) || 'Erreur serveur');
         }
         
     } catch (error) {
@@ -333,26 +364,6 @@ async function handleContactForm(event) {
     setTimeout(() => {
         statusDiv.classList.add('hidden');
     }, 10000);
-}
-
-// Fonction de simulation d'envoi d'email (à remplacer par un vrai service)
-async function simulateEmailSend(emailData) {
-    return new Promise((resolve) => {
-        // Simulation d'un délai d'envoi
-        setTimeout(() => {
-            // Log des données pour démonstration
-            console.log('📧 Données email à envoyer:', {
-                destinataire: emailData.to_email,
-                expediteur: `${emailData.from_name} <${emailData.from_email}>`,
-                entreprise: emailData.company,
-                sujet: emailData.subject_type,
-                message: emailData.message.substring(0, 100) + '...'
-            });
-            
-            // Simuler un succès
-            resolve({ ok: true, status: 200 });
-        }, 1500);
-    });
 }
 
 function validateContactForm(form) {
