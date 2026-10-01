@@ -6,7 +6,7 @@
 // lors de l'inscription sur https://web3forms.com (champ "Access Key").
 // C'est la SEULE ligne à modifier pour activer l'envoi des messages.
 // ===========================================================================
-const WEB3FORMS_ACCESS_KEY = 'COLLEZ-VOTRE-CLE-ICI';
+const WEB3FORMS_ACCESS_KEY = 'b16d68e9-cd20-41ab-b876-10ef477ab7f3';
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialisation
